@@ -27,7 +27,7 @@ jobs:
       - name: AZ Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_SERVICE_PRINCIPAL }} # SETUP: replace AZURE_SERVICE_PRINCIPAL with your own secret name    
+          creds: ${{ secrets.EZMLOPS_SP_19 }} # SETUP: replace AZURE_SERVICE_PRINCIPAL with your own secret name    
       - name: Install AZ ML and tools
         run: | # SETUP line 34 to point to your own AML workspace
           az extension add -n ml -y --version 2.2.1
@@ -36,4 +36,3 @@ jobs:
         uses: ./.github/actions/aml-job-create
         with:
           jobFile: src/workshop/core/data_engineering/feature_engineering.yml
-
